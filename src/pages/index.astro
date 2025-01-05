@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Rating from "../components/Rating"
+
+const title = "Interactive Rating Component"
+const description = "An interactive rating component built with Astro and React."
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
     <main class="p-4">
         <Rating client:only="react" />
     </main>
