@@ -20,7 +20,7 @@ export default function Rating() {
     return (
         <article
             aria-label="Feedback rating form"
-            className={`bg-black-gradient flex w-full max-w-[20.438rem] flex-col rounded-2xl text-white md:max-w-[25.75rem]  ${
+            className={`bg-black-gradient flex w-full max-w-[20.438rem] flex-col rounded-2xl md:rounded-3xl text-white md:max-w-[25.75rem]  ${
                 isSubmitted ? "px-9 pt-6 pb-8 md:py-8 md:px-11" : "p-6 md:p-8"
             }`}
         >
