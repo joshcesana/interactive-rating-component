@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Overpass";
+        font-optical-sizing: auto;
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+        src: url(/fonts/Overpass-VariableFont_wght.woff2) format("woff2");
+    }
+}
+
+.bg-black-gradient {
+    background: #232b34;
+    background: radial-gradient(at center top, #232b34, #181f27);
+}
