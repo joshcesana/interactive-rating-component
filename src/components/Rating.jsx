@@ -6,11 +6,13 @@ export default function Rating() {
     const [selectedRating, setSelectedRating] = useState(null)
     const [isSubmitted, setIsSubmitted] = useState(false)
 
-    const handleRatingSelect = (rating) => {
+    function handleRatingSelect(rating) {
         setSelectedRating(rating)
     }
 
-    const handleSubmit = () => {
+    function handleSubmit(e) {
+        e.preventDefault()
+
         if (selectedRating) {
             // some backend logic here
             setIsSubmitted(true)
@@ -18,7 +20,8 @@ export default function Rating() {
     }
 
     return (
-        <article
+        <form
+            onSubmit={handleSubmit}
             aria-label="Feedback rating form"
             className={`bg-black-gradient flex w-full max-w-[20.438rem] flex-col rounded-2xl md:rounded-3xl text-white md:max-w-[25.75rem]  ${
                 isSubmitted ? "px-9 pt-6 pb-8 md:py-8 md:px-11" : "p-6 md:p-8"
@@ -53,6 +56,7 @@ export default function Rating() {
                         {[1, 2, 3, 4, 5].map((rating) => (
                             <button
                                 key={rating}
+                                type="button"
                                 onClick={() => handleRatingSelect(rating)}
                                 className={`text-base pt-[.2rem] w-11 h-11 md:w-12 md:h-12 flex justify-center items-center rounded-full ${
                                     selectedRating === rating
@@ -64,14 +68,13 @@ export default function Rating() {
                             </button>
                         ))}
                     </div>
-                    <button
-                        onClick={handleSubmit}
+                    <input
+                        type="submit"
+                        value="Submit"
                         className="w-full rounded-full bg-orange py-3 text-base15 font-bold uppercase tracking-widest text-black transition hover:bg-white md:py-3.5"
-                    >
-                        Submit
-                    </button>
+                    />
                 </>
             )}
-        </article>
+        </form>
     )
 }
